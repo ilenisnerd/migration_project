@@ -55,3 +55,8 @@ jobs:
         FLYWAY_USER: testuser
         FLYWAY_PASSWORD: testpassword
       run: flyway migrate -locations=filesystem:sql/migrations
+
+    - name: Making the SELECT query
+      run: |
+        export PGPASSWORD=testpassword
+        psql -h localhost -U testuser -d testdb -c "SELECT * FROM flyway_schema_history;"
