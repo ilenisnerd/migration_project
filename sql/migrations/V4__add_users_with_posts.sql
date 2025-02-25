@@ -5,5 +5,5 @@ WITH new_users AS (
 )
 -- Добавляем по одному посту для каждого нового пользователя
 INSERT INTO posts (text, owner_id)
-SELECT CONCUT('Первый пост от ', username), id
+SELECT CONCUT('Первый пост от ', user), id
 FROM new_users;
